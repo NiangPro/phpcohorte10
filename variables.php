@@ -1,23 +1,23 @@
-<?php 
+<?php
 
- echo "Les variables et les constantes<br>";
+echo "Les variables et les constantes<br>";
 
- define("PI", 3.14);
+define("PI", 3.14);
 
- define("NOMCOMPLET", "BASSIROU");
+define("NOMCOMPLET", "BASSIROU");
 
- $prenom = "Matar";
- $nom = "Khall";
+$prenom = "Matar";
+$nom = "Khall";
 
- $age = 23;
+$age = 23;
 
- $decimal = 34.7;
+$decimal = 34.7;
 
- $trouve = false;
+$trouve = false;
 
 //  echo "Prenom:".$prenom;
 //  echo "Prenom:$prenom<br>  Nom:$nom";
- echo 'Prenom:'.$prenom.' '.$nom;
+echo 'Prenom:' . $prenom . ' ' . $nom;
 
- echo "<br> Pi = ".PI;
- echo "<br> Nom complet = ".NOMCOMPLET;
+echo "<br> Pi = " . PI;
+echo "<br> Nom complet = " . NOMCOMPLET;
