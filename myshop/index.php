@@ -1,5 +1,6 @@
 <?php 
 
+require_once("models/database.php");
 require_once("views/includes/entete.php");
 
 // routeur 

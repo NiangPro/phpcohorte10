@@ -3,7 +3,7 @@
         <div class="card-header row bg-primary text-white">
             <h3 class="col-md-10">Liste de categories</h3>
             <div class="col-md-2 text-end">
-                <a href="" class="btn btn-success">Ajouter</a>
+                <a href="?page=categorie&type=add" class="btn btn-success">Ajouter</a>
             </div>
         </div>
         <div class="card-body">
