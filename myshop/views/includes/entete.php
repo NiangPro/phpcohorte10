@@ -27,12 +27,12 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="?page=home" aria-current="page"
+                        <a class="nav-link <?= (!isset($_GET['page']) || ($_GET['page']!= 'categorie' && $_GET['page']!= 'produit')) ? 'active':'' ?>" href="?page=home" aria-current="page"
                             >Accueil</a
                         >
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page=categorie">Categories</a>
+                        <a class="nav-link <?= (isset($_GET['page']) && $_GET['page']== 'categorie') ? 'active':'' ?>" href="?page=categorie">Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?page=produit">Produits</a>
