@@ -6,6 +6,48 @@ try {
     echo "Erreur: ".$e->getMessage()." a la ligne ".__LINE__;
 }
 
+function ajouterUnProduit($nom, $prix, $qtestock, $image, $description, $categorie_id){
+    global $db;
+    try {
+        $q = $db->prepare("INSERT INTO produits VALUES(null, :nom, :prix, :qtestock, :image, :description, :categorie_id)");
+        return $q->execute([
+            "nom" => $nom,
+            "prix" => $prix,
+            "qtestock" => $qtestock,
+            "image" => $image,
+            "description" => $description,
+            "categorie_id" => $categorie_id
+        ]);
+    } catch (PDOException $e) {
+        echo "Erreur: ".$e->getMessage()." a la ligne ".__LINE__;
+    }
+}
+
+function recupererTousLesProduits(){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM produits ORDER BY id DESC");
+        $q->execute();
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        echo "Erreur: ".$e->getMessage()." a la ligne ".__LINE__;
+    }
+}
+
+function recupererUnProduit($id)
+{
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM produits WHERE id=:id");
+        $q->execute(["id" => $id]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        echo "Erreur: ".$e->getMessage()." a la ligne ".__LINE__;
+    }
+}
+
 
 function recupererToutesLesCategories(){
     global $db;
