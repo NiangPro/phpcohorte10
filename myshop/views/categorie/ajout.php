@@ -1,5 +1,6 @@
-<div class="card container col-md-6 mt-4">
-    <div class="card-header row bg-primary text-white">
+<div class=" container col-md-6 mt-5 mb-5 pt-5 pb-5">
+<div class="card">
+    <div class="card-header row bg-dark text-white">
         <h5 class="col-md-10">Formulaire d'<?= isset($c) ? 'édition': 'ajout' ?> categorie</h5>
         <div class="col-md-2 text-end">
             <a href="?page=categorie" class="btn btn-warning">Retour</a>
@@ -20,4 +21,5 @@
 
         </form>
     </div>
+</div>
 </div>

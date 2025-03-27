@@ -1,5 +1,6 @@
-<div class="card container col-md-8 mt-3">
-    <div class="card-header row bg-primary text-white">
+<div class=" container col-md-8 mt-5 mb-5 pt-5">
+<div class="card">
+    <div class="card-header row bg-dark text-white">
         <h3 class="col-md-10">Formulaire d'ajout produit</h3>
         <div class="col-md-2 text-end">
             <a href="?page=produit" class="btn btn-warning">Retour</a>
@@ -41,4 +42,5 @@
             <button type="submit" name="ajouter" class="btn btn-success btn-sm mt-3">Ajouter</button>
         </form>
     </div>
+</div>
 </div>

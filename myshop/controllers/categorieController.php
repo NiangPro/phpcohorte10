@@ -1,5 +1,13 @@
 <?php 
 
+if (isset($_SESSION["user"])) {
+    if ($_SESSION["user"]->role != "admin") {
+        return header("Location:?page=home");
+    }
+}else{
+    return header("Location:?page=home");
+}
+
 // traitements
 if(isset($_POST["ajouter"])){
     extract($_POST);

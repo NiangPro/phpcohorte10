@@ -6,6 +6,36 @@ try {
     echo "Erreur: ".$e->getMessage()." a la ligne ".__LINE__;
 }
 
+function seconnecter($email){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM users WHERE email=:email");
+        $q->execute(["email" => $email]);
+
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__, "danger");
+    }
+}
+
+function inscrire($prenom, $nom, $tel, $adresse, $email, $mdp, $role){
+    global $db;
+    try {
+        $q = $db->prepare("INSERT INTO users VALUES(null, :prenom, :nom, :tel, :adresse, :email, :mdp, :role)");
+        return $q->execute([
+            "prenom" => $prenom,
+            "tel" => $tel,
+            "nom" => $nom,
+            "adresse" => $adresse,
+            "email" => $email,
+            "mdp" => $mdp,
+            "role" => $role,
+        ]);
+    }catch (PDOException $e) {
+        setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__, "danger");
+    }
+}
+
 function ajouterUnProduit($nom, $prix, $qtestock, $image, $description, $categorie_id){
     global $db;
     try {

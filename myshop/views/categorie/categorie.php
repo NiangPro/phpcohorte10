@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mt-5 mb-5 pt-5">
     <div class="card mt-3 container col-md-7">
-        <div class="card-header row bg-primary text-white">
+        <div class="card-header row bg-dark text-white">
             <h3 class="col-md-10">Liste de categories</h3>
             <div class="col-md-2 text-end">
                 <a href="?page=categorie&type=add" class="btn btn-success">Ajouter</a>

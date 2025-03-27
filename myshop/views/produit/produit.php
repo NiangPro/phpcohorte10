@@ -1,5 +1,6 @@
-<div class="card container col-md-10 mt-3">
-    <div class="card-header row bg-primary text-white">
+<div class=" container col-md-10 mt-5 mb-5 pt-5">
+<div class="card">
+    <div class="card-header row bg-dark text-white">
         <h3 class="col-md-10">Liste des produits</h3>
         <div class="col-md-2 text-end">
             <a href="?page=produit&type=add" class="btn btn-success">Ajouter</a>
@@ -38,4 +39,5 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>
