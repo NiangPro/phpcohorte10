@@ -36,6 +36,18 @@ function inscrire($prenom, $nom, $tel, $adresse, $email, $mdp, $role){
     }
 }
 
+function recupererTousLesProduitsSimilaires($categorie_id){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM produits WHERE categorie_id =:categorie_id");
+        $q->execute(["categorie_id" => $categorie_id]);
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__, "danger");
+    }
+}
+
 function ajouterUnProduit($nom, $prix, $qtestock, $image, $description, $categorie_id){
     global $db;
     try {
@@ -50,6 +62,21 @@ function ajouterUnProduit($nom, $prix, $qtestock, $image, $description, $categor
         ]);
     } catch (PDOException $e) {
         echo "Erreur: ".$e->getMessage()." a la ligne ".__LINE__;
+    }
+}
+
+function ajouterAuPanier($produit_id, $client_id, $nombre, $montant){
+    global $db;
+    try{
+        $q = $db->prepare("INSERT INTO panier VALUES (NULL, :produit_id, :client_id, :nombre, :montant)");
+        return $q->execute([
+            "client_id" => $client_id,
+            "produit_id" => $produit_id,
+            "nombre" => $nombre,
+            "montant" => $montant
+        ]);
+    }catch (PDOException $e) {
+        setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__, "danger");
     }
 }
 

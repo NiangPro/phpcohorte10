@@ -14,4 +14,7 @@ if (isset($_POST["inscrire"])) {
         setmessage("Les deux mots de passe ne concordent pas", "danger");
     }
 }
+
+require_once("views/includes/entete.php");
+
 require_once("views/register.php");

@@ -23,6 +23,8 @@ $categories = recupererToutesLesCategories();
 $produits = recupererTousLesProduits();
 
 
+require_once("views/includes/entete.php");
+
 //redirection
 if (isset($_GET["type"])) {
     require_once("views/produit/ajout.php");

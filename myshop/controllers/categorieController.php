@@ -33,6 +33,8 @@ if (isset($_POST["modifier"])) {
 //variables
 $categories = recupererToutesLesCategories();
 
+require_once("views/includes/entete.php");
+
 
 //inclusion des pages views
 if (isset($_GET["type"])) {

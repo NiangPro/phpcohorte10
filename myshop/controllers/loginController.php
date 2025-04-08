@@ -22,4 +22,7 @@ if (isset($_POST["connecter"])) {
         setmessage("Email incorrect", "warning");
     }
 }
+
+require_once("views/includes/entete.php");
+
 require_once("views/login.php");

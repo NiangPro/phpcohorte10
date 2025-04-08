@@ -34,7 +34,7 @@
                                 <li><a class="dropdown-item" href="#!">Toutes les categories</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <?php foreach($cats as $c): ?>
-                                <li><a class="dropdown-item" href="#!"><?= $c["nom"] ?></a></li>
+                                <li><a class="dropdown-item" href="?page=detailcategorie&idcat=<?= $c['id'] ?>"><?= $c["nom"] ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                     </li>
