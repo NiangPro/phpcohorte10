@@ -7,6 +7,10 @@ require_once("models/database.php");
 
 $cats = recupererToutesLesCategories();
 
+if (isset($_SESSION["user"])) {
+    $panier = recupererLesProduitsDuPanier($_SESSION["user"]->id);
+}
+
 // routeur 
 if (isset($_GET["page"])) {
     # code...
@@ -14,6 +18,8 @@ if (isset($_GET["page"])) {
         require_once("controllers/homeController.php");
     }else if($_GET["page"] == "detailcategorie"){
         require_once("controllers/detailCategorieController.php");
+    }else if($_GET["page"] == "panier"){
+        require_once("controllers/panierController.php");
     }else if($_GET["page"] == "categorie"){
         require_once("controllers/categorieController.php");
     }else if($_GET["page"] == "produit"){

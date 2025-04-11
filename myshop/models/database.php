@@ -80,6 +80,46 @@ function ajouterAuPanier($produit_id, $client_id, $nombre, $montant){
     }
 }
 
+function recupererLesProduitsDuPanier($client_id)
+{
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM panier WHERE client_id =:client_id");
+        $q->execute(["client_id" => $client_id]);
+
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__, "danger");
+    }
+}
+
+function supprimerUnProduitDansLePanier($id){
+    global $db;
+    try{
+        $q = $db->prepare("DELETE FROM panier WHERE id=:id");
+        return $q->execute(["id" => $id]);
+    }catch (PDOException $e) {
+        setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__, "danger");
+    }
+}
+
+function recupererLesInfosDuPanier($client_id)
+{
+    global $db;
+    try {
+        $q = $db->prepare("SELECT pa.id as id, p.nom as nomproduit, image, nombre, prix, montant, client_id, produit_id, qtestock
+                            FROM panier pa, users c, produits p
+                            WHERE pa.client_id =c.id AND pa.produit_id = p.id AND c.id = :client_id");
+        $q->execute(["client_id" => $client_id]);
+
+
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__, "danger");
+    }
+}
+
 function recupererTousLesProduits(){
     global $db;
     try {
